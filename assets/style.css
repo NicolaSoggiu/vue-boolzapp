@@ -1,7 +1,82 @@
 /* GENERAL */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+body {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(
+        to bottom,
+        #009688 20%,
+        #DBDBD2 20%
+    );
 }
+
+/* .CONTAINER */
+
+.container {
+    display: grid;
+    grid-template-columns: 1.2fr 2fr;
+    height: 90vh;
+}
+
+.user img {
+    width: 15%;
+    border-radius: 40px;
+}
+
+/* LEFT-TOP RIGHT-TOP */
+
+.left {
+    height: 90vh;
+}
+
+.left-top .user, .right-top .user {
+    height: 12vh;
+    background-color: #EAEAEA;
+}
+
+.notifications {
+    background-color: #8EDAFC;
+}
+
+/* LEFT BOTTOM */
+
+.left-bottom {
+    height: calc(90vh - 12vh);
+    overflow-y: scroll
+}
+
+/* RIGHT */
+
+.right {
+    height: 90vh;
+}
+
+.sent, .received {
+    margin: 2px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.sent {   
+    background-color: #D5F9BA;
+    align-self: flex-end;
+}
+
+.received {
+    width: fit-content;
+    background-color:  #FFFFFF;
+}
+
+/* RIGHT BOTTOM */
+
+.right-bottom {
+    overflow-y: scroll;
+    height: calc(80vh - 12vh);
+    background-image: url(../img/mine.jpg);
+}
+
+.send-message{
+    height: 10vh;
+    background-color: #F3EEEA;
+    }

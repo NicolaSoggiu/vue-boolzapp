@@ -19,5 +19,82 @@
     />
     <link rel="stylesheet" href="assets/style.css" />
   </head>
-  <body></body>
+  <body class="vh-100">
+    <div class="container bg-light p-0">
+      <div class="left d-flex flex-column">
+        <div class="left-top w-100">
+          <div class="user w-100 d-flex justify-content-around p-1">
+            <div class="user-img d-flex flex-column">
+              <img src="img/avatar_1.jpg" alt="" />
+              <span>Nicola</span>
+            </div>
+            <div class="user-icon d-flex align-items-center">
+              <i class="bi bi-search"></i>
+              <i class="bi bi-chat-left-fill px-2"></i>
+              <i class="bi bi-list"></i>
+            </div>
+          </div>
+          <div class="notifications w-100 d-flex">
+            <i class="bi bi-bell-slash w-25 p-2 text-center"></i>
+            <div class="notifications-text d-flex flex-column w-75">
+              <span>ricevi notifiche di nuovi messaggi</span>
+              <span>attiva notifiche dettagli</span>
+            </div>
+          </div>
+          <div class="chat-search d-flex">
+            <i class="bi bi-search p-1"></i>
+            <input
+              type="text"
+              placeholder="cerca o trova una nuova chat"
+              class="w-100"
+            />
+          </div>
+        </div>
+        <div class="left-bottom p-3">
+          <div
+            v-for="(contact, index) in contacts"
+            :key="index"
+            class="user w-100 d-flex justify-content-around p-1"
+          >
+            <div class="user-img d-flex">
+              <img :src="contact.avatar" alt="" />
+              <span>{{ contact.name }}</span>
+            </div>
+            <div class="user-icon d-flex align-items-center"></div>
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="right-top">
+          <div class="user w-100 d-flex justify-content-between p-1">
+            <div class="user-img">
+              <img src="img/avatar_1.jpg" alt="" />
+              <span>Nicola</span>
+            </div>
+            <div class="user-icon d-flex align-items-center">
+              <i class="bi bi-search"></i>
+              <i class="bi bi-paperclip px-2"></i>
+              <i class="bi bi-three-dots-vertical"></i>
+            </div>
+          </div>
+        </div>
+        <div class="right-bottom d-flex flex-column p-5">
+          <span class="sent">ciao federico come va?</span>
+          <span class="sent">stasera ci sono</span>
+          <span class="received"> perfetto ti scrivo dopo</span>
+        </div>
+        <div
+          class="send-message p-2 d-flex justify-content-between align-items-center"
+        >
+          <i class="bi bi-emoji-smile"></i>
+          <input
+            type="text"
+            placeholder="nuovo messaggio"
+            class="flex-grow-1 mx-2"
+          />
+          <i class="bi bi-mic-fill pe-3"></i>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
