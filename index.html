@@ -79,9 +79,12 @@
           </div>
         </div>
         <div class="right-bottom d-flex flex-column p-5">
-          <span class="sent">ciao federico come va?</span>
+          <div v-for="(chat, index) in contacts" :key="index">
+            <span>{{ chat.messages.message }}</span>
+          </div>
+          <!-- <span class="sent">ciao federico come va?</span>
           <span class="sent">stasera ci sono</span>
-          <span class="received"> perfetto ti scrivo dopo</span>
+          <span class="received"> perfetto ti scrivo dopo</span> -->
         </div>
         <div
           class="send-message p-2 d-flex justify-content-between align-items-center"
