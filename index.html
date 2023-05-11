@@ -23,7 +23,7 @@
     <div class="container bg-light p-0">
       <div class="left d-flex flex-column">
         <div class="left-top w-100">
-          <div class="user w-100 d-flex justify-content-around p-1">
+          <div class="user w-100 d-flex justify-content-between ps-2 pt-2">
             <div class="user-img d-flex flex-column">
               <img src="img/avatar_1.jpg" alt="" />
               <span>Nicola</span>
@@ -35,8 +35,8 @@
             </div>
           </div>
           <div class="notifications w-100 d-flex">
-            <i class="bi bi-bell-slash w-25 p-2 text-center"></i>
-            <div class="notifications-text d-flex flex-column w-75">
+            <i class="bi bi-bell-slash w-25 p-3 text-center"></i>
+            <div class="notifications-text d-flex flex-column w-75 p-2">
               <span>ricevi notifiche di nuovi messaggi</span>
               <span>attiva notifiche dettagli</span>
             </div>
@@ -54,19 +54,26 @@
           <div
             v-for="(contact, index) in contacts"
             :key="index"
-            class="user w-100 d-flex justify-content-around p-1"
+            class="user w-100 d-flex justify-content-between p-1"
           >
             <div class="user-img d-flex">
               <img :src="contact.avatar" alt="" />
-              <span>{{ contact.name }}</span>
             </div>
-            <div class="user-icon d-flex align-items-center"></div>
+            <div
+              class="dettails d-flex flex-column align-items-start flex-grow-1 ps-2"
+            >
+              <span>{{ contact.name }}</span>
+              <span class="miniature-text"
+                >{{ contact.messages[contact.messages.length - 1].message
+                }}</span
+              >
+            </div>
           </div>
         </div>
       </div>
       <div class="right">
         <div class="right-top">
-          <div class="user w-100 d-flex justify-content-between p-1">
+          <div class="user w-100 d-flex justify-content-between p-2">
             <div class="user-img">
               <img src="img/avatar_1.jpg" alt="" />
               <span>Nicola</span>
@@ -79,12 +86,19 @@
           </div>
         </div>
         <div class="right-bottom d-flex flex-column p-5">
-          <div v-for="(chat, index) in contacts" :key="index">
-            <span>{{ chat.messages.message }}</span>
+          <div
+            v-for="(contact, index) in contacts"
+            :key="index"
+            class="d-flex flex-column"
+          >
+            <div class="received">
+              <span>{{ contact.messages[0].message }}</span>
+              <!-- <span class="last-access">ultimo accesso</span> -->
+            </div>
+            <div class="sent">
+              <span>{{ contact.messages[0].message }}</span>
+            </div>
           </div>
-          <!-- <span class="sent">ciao federico come va?</span>
-          <span class="sent">stasera ci sono</span>
-          <span class="received"> perfetto ti scrivo dopo</span> -->
         </div>
         <div
           class="send-message p-2 d-flex justify-content-between align-items-center"

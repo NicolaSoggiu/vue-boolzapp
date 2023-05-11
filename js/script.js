@@ -168,4 +168,4 @@ const app = Vue.createApp({
   },
 });
 
-app.mount(".left-bottom");
+app.mount(".container");

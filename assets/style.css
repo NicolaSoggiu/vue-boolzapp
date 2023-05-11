@@ -20,7 +20,7 @@ body {
 }
 
 .user img {
-    width: 15%;
+    width: 50px;
     border-radius: 40px;
 }
 
@@ -31,7 +31,7 @@ body {
 }
 
 .left-top .user, .right-top .user {
-    height: 12vh;
+    height: 13vh;
     background-color: #EAEAEA;
 }
 
@@ -43,7 +43,7 @@ body {
 
 .left-bottom {
     height: calc(90vh - 12vh);
-    overflow-y: scroll
+    overflow-y: scroll;
 }
 
 /* RIGHT */
@@ -61,6 +61,7 @@ body {
 .sent {   
     background-color: #D5F9BA;
     align-self: flex-end;
+    
 }
 
 .received {
@@ -72,7 +73,7 @@ body {
 
 .right-bottom {
     overflow-y: scroll;
-    height: calc(80vh - 12vh);
+    height: calc(80vh - 13vh);
     background-image: url(../img/mine.jpg);
 }
 
@@ -80,3 +81,11 @@ body {
     height: 10vh;
     background-color: #F3EEEA;
     }
+
+.miniature-text{
+    width: 180px;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
