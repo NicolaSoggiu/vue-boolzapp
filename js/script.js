@@ -1,6 +1,7 @@
 const app = Vue.createApp({
   data() {
     return {
+      newMessage: "",
       activeIndex: 0,
       contacts: [
         {
@@ -170,6 +171,23 @@ const app = Vue.createApp({
   methods: {
     showMessage(index) {
       this.activeIndex = index;
+      this.message = "";
+    },
+    sendMessage() {
+      if (this.newMessage !== "") {
+        const message = {
+          message: this.newMessage,
+          status: "sent",
+        };
+        this.contacts[this.activeIndex].messages.push(message);
+        this.newMessage = "";
+        setTimeout(() => {
+          this.contacts[this.activeIndex].messages.push({
+            message: "ok",
+            status: "received",
+          });
+        }, 1000);
+      }
     },
   },
 });

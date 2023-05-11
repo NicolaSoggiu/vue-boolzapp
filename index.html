@@ -108,7 +108,9 @@
             type="text"
             placeholder="nuovo messaggio"
             class="flex-grow-1 mx-2"
+            v-model="newMessage"
           />
+          <button @click="sendMessage">send</button>
           <i class="bi bi-mic-fill pe-3"></i>
         </div>
       </div>
