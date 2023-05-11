@@ -19,6 +19,11 @@ body {
     height: 90vh;
 }
 
+.container .user {
+    cursor: pointer;
+    border-bottom: 1px solid black;
+}
+
 .user img {
     width: 50px;
     border-radius: 40px;

@@ -55,6 +55,7 @@
             v-for="(contact, index) in contacts"
             :key="index"
             class="user w-100 d-flex justify-content-between p-1"
+            @click="showMessage(index)"
           >
             <div class="user-img d-flex">
               <img :src="contact.avatar" alt="" />
@@ -87,17 +88,16 @@
         </div>
         <div class="right-bottom d-flex flex-column p-5">
           <div
-            v-for="(contact, index) in contacts"
-            :key="index"
             class="d-flex flex-column"
+            v-for="message in contacts[activeIndex].messages"
           >
-            <div class="received">
-              <span>{{ contact.messages[0].message }}</span>
+            <div :class="message.status === 'sent' ? 'sent' : 'received'">
+              <span>{{ message.message }}</span>
               <!-- <span class="last-access">ultimo accesso</span> -->
             </div>
-            <div class="sent">
-              <span>{{ contact.messages[0].message }}</span>
-            </div>
+            <!-- <div class="sent">
+                <span>{{ contact.messages[1].message }}</span>
+              </div> -->
           </div>
         </div>
         <div
