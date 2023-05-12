@@ -7,6 +7,11 @@
     <title>Boolzapp</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js" defer></script>
     <script src="js/script.js" defer></script>
+    <style>
+      [v-cloack] {
+        display: none;
+      }
+    </style>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -21,7 +26,9 @@
   </head>
   <body class="vh-100">
     <div class="container bg-light p-0">
+      <!-- LEFT -->
       <div class="left d-flex flex-column">
+        <!-- LEFT-TOP -->
         <div class="left-top w-100">
           <div class="user w-100 d-flex justify-content-between ps-2 pt-2">
             <div class="user-img d-flex flex-column">
@@ -50,9 +57,10 @@
             />
           </div>
         </div>
-        <div class="left-bottom p-3">
+        <!-- LEFT-BOTTOM -->
+        <div class="left-bottom py-3 overflow-y-scroll">
           <div
-            v-for="(contact, index) in contacts"
+            v-for="(contact, index) in filterContacts"
             :key="index"
             class="user w-100 d-flex justify-content-between p-1"
             @click="showMessage(index)"
@@ -64,20 +72,25 @@
               class="dettails d-flex flex-column align-items-start flex-grow-1 ps-2"
             >
               <span>{{ contact.name }}</span>
-              <span class="miniature-text"
+              <span class="miniature-text overflow-hidden"
                 >{{ contact.messages[contact.messages.length - 1].message
                 }}</span
               >
             </div>
+            <span class="miniature-date text-end">
+              {{ contact.messages[contact.messages.length - 1].date }}</span
+            >
           </div>
         </div>
       </div>
+      <!-- RIGHT -->
       <div class="right">
+        <!-- RIGHT-TOP -->
         <div class="right-top">
           <div class="user w-100 d-flex justify-content-between p-2">
             <div class="user-img">
               <img src="img/avatar_1.jpg" alt="" />
-              <span>Nicola</span>
+              <span>{{ contacts[activeIndex].name }}</span>
             </div>
             <div class="user-icon d-flex align-items-center">
               <i class="bi bi-search"></i>
@@ -86,18 +99,16 @@
             </div>
           </div>
         </div>
-        <div class="right-bottom d-flex flex-column p-5">
+        <!-- RIGHT-BOTTOM -->
+        <div class="right-bottom d-flex flex-column p-5 overflow-y-scroll">
           <div
             class="d-flex flex-column"
             v-for="message in contacts[activeIndex].messages"
           >
             <div :class="message.status === 'sent' ? 'sent' : 'received'">
               <span>{{ message.message }}</span>
-              <!-- <span class="last-access">ultimo accesso</span> -->
+              <div class="date text-end">{{ message.date }}</div>
             </div>
-            <!-- <div class="sent">
-                <span>{{ contact.messages[1].message }}</span>
-              </div> -->
           </div>
         </div>
         <div

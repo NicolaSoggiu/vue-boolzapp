@@ -1,6 +1,7 @@
 const app = Vue.createApp({
   data() {
     return {
+      searchStr: "",
       newMessage: "",
       activeIndex: 0,
       contacts: [
@@ -183,11 +184,20 @@ const app = Vue.createApp({
         this.newMessage = "";
         setTimeout(() => {
           this.contacts[this.activeIndex].messages.push({
-            message: "ok",
+            message: "Ok",
             status: "received",
           });
         }, 1000);
       }
+    },
+  },
+  computed: {
+    filterContacts() {
+      return this.contacts.filter((contacts) => {
+        return contacts.name
+          .toLowerCase()
+          .includes(this.searchStr.toLowerCase());
+      });
     },
   },
 });
