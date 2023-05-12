@@ -176,9 +176,13 @@ const app = Vue.createApp({
     },
     sendMessage() {
       if (this.newMessage !== "") {
+        const now = new Date();
         const message = {
           message: this.newMessage,
-          date: new Date(),
+          date: `${now.getDate()}/${
+            now.getMonth() + 1
+          }/${now.getFullYear()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`,
+          status: "received",
           status: "sent",
         };
         this.contacts[this.activeIndex].messages.push(message);
