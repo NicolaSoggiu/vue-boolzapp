@@ -7,7 +7,7 @@ const app = Vue.createApp({
       contacts: [
         {
           name: "Michele",
-          avatar: "./img/avatar_1.jpg",
+          avatar: "../img/avatar_1.jpg",
           visible: true,
           messages: [
             {
@@ -178,13 +178,18 @@ const app = Vue.createApp({
       if (this.newMessage !== "") {
         const message = {
           message: this.newMessage,
+          date: new Date(),
           status: "sent",
         };
         this.contacts[this.activeIndex].messages.push(message);
         this.newMessage = "";
         setTimeout(() => {
+          const now = new Date();
           this.contacts[this.activeIndex].messages.push({
             message: "Ok",
+            date: `${now.getDate()}/${
+              now.getMonth() + 1
+            }/${now.getFullYear()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`,
             status: "received",
           });
         }, 1000);

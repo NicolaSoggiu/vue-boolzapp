@@ -90,7 +90,7 @@
         <div class="right-top">
           <div class="user w-100 d-flex justify-content-between p-2">
             <div class="user-img">
-              <img src="img/avatar_1.jpg" alt="" />
+              <img :src="contacts[activeIndex].avatar" alt="" />
               <span>{{ contacts[activeIndex].name }}</span>
             </div>
             <div class="user-icon d-flex align-items-center">
