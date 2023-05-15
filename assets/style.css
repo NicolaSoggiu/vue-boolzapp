@@ -6,6 +6,10 @@ body {
   background: linear-gradient(to bottom, #009688 20%, #dbdbd2 20%);
 }
 
+.bi {
+  cursor: pointer;
+}
+
 /* .CONTAINER */
 
 .container {
@@ -15,23 +19,22 @@ body {
 }
 
 .container .user {
-  cursor: pointer;
   border-bottom: 1px solid black;
 }
 
-.user img {
+.container .user img {
   width: 50px;
   border-radius: 40px;
 }
 
 /* LEFT-TOP RIGHT-TOP */
 
-.left {
+.container .left {
   height: 90vh;
 }
 
-.left-top .user,
-.right-top .user {
+.container .left .left-top .user,
+.container .right .right-top .user {
   height: 13vh;
   background-color: #eaeaea;
 }
@@ -42,17 +45,32 @@ body {
 
 /* LEFT BOTTOM */
 
-.left-bottom {
+.container .left .left-bottom {
   height: calc(90vh - 12vh);
+}
+
+.container .left .left-bottom {
+  cursor: pointer;
+}
+
+.container .left .left-bottom .user:hover {
+  background-color: lightgray;
 }
 
 .miniature-date {
     font-size: .7rem;
 }
 
+.bi-bell-slash {
+  color: #8edafc;
+  padding: 12px;
+  border: 1px solid white;
+  background-color: white;
+}
+
 /* RIGHT */
 
-.right {
+.container .right {
   height: 90vh;
 }
 
@@ -75,7 +93,7 @@ body {
 
 /* RIGHT BOTTOM */
 
-.right-bottom {
+.container .right .right-bottom {
   height: calc(80vh - 13vh);
   background-image: url(../img/mine.jpg);
 }
@@ -99,5 +117,4 @@ body {
 
 .bi-check {
   font-size: 1.2rem;
-  cursor: pointer;
 }

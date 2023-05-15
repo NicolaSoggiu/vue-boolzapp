@@ -40,9 +40,9 @@
         <!-- LEFT-TOP -->
         <div class="left-top w-100">
           <div class="user w-100 d-flex justify-content-between ps-2 pt-2">
-            <div class="user-img d-flex flex-column">
+            <div class="user-img d-flex align-items-center">
               <img src="img/avatar_1.jpg" alt="" />
-              <span>Nicola</span>
+              <span class="ms-3">Nicola</span>
             </div>
             <div class="user-icon d-flex align-items-center">
               <i class="bi bi-search"></i>
@@ -50,15 +50,17 @@
               <i class="bi bi-list"></i>
             </div>
           </div>
-          <div class="notifications w-100 d-flex">
-            <i class="bi bi-bell-slash w-25 p-3 text-center"></i>
-            <div class="notifications-text d-flex flex-column w-75 p-2">
-              <span>ricevi notifiche di nuovi messaggi</span>
-              <span>attiva notifiche dettagli</span>
+          <div class="notifications w-100 d-flex align-items-center">
+            <span class="ps-2"
+              ><i class="bi bi-bell-slash border rounded-circle"></i
+            ></span>
+            <div class="notifications-text d-flex flex-column w-75 p-3">
+              <span>Ricevi notifiche di nuovi messaggi</span>
+              <a href class="text-dark">Attiva notifiche dettagli</a>
             </div>
           </div>
           <div class="chat-search d-flex">
-            <i class="bi bi-search p-1"></i>
+            <i class="bi bi-search p-2"></i>
             <input
               type="text"
               placeholder="cerca o trova una nuova chat"
@@ -97,10 +99,12 @@
       <div class="right">
         <!-- RIGHT-TOP -->
         <div class="right-top">
-          <div class="user w-100 d-flex justify-content-between p-2">
+          <div
+            class="user w-100 d-flex justify-content-between p-2 align-items-center"
+          >
             <div class="user-img">
               <img :src="contacts[activeIndex].avatar" alt="" />
-              <span>{{ contacts[activeIndex].name }}</span>
+              <span class="ms-3">{{ contacts[activeIndex].name }}</span>
             </div>
             <div class="user-icon d-flex align-items-center">
               <i class="bi bi-search"></i>
@@ -139,7 +143,7 @@
                       <a
                         class="dropdown-item"
                         href="#"
-                        @click="deleteMessage(message, index)"
+                        @click="deleteMessage(contacts)"
                         >Delete message</a
                       >
                     </li>
@@ -161,8 +165,8 @@
             v-model="newMessage"
             @keyup.enter="sendMessage"
           />
-          <button @click="sendMessage">send</button>
-          <i class="bi bi-mic-fill pe-3"></i>
+          <span @click="sendMessage"><i class="bi bi-send pe-2"></i></span>
+          <i class="bi bi-mic-fill ps-2 pe-3"></i>
         </div>
       </div>
     </div>

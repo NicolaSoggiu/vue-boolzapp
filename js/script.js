@@ -199,11 +199,12 @@ const app = Vue.createApp({
         }, 1000);
       }
     },
+    deleteMessage(i) {
+      this.contacts[this.activeIndex].messages.splice(i, 2);
+    },
   },
   // TO FIX
-  deleteMessage(contactIndex, messageIndex) {
-    this.contacts[contactIndex].messages.splice(messageIndex, 1);
-  },
+
   computed: {
     filterContacts() {
       return this.contacts.filter((contacts) => {
