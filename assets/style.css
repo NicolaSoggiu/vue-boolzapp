@@ -96,3 +96,8 @@ body {
     padding-top: .5rem;
     padding-left: 5rem;
 }
+
+.bi-check {
+  font-size: 1.2rem;
+  cursor: pointer;
+}

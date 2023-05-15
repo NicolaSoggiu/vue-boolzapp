@@ -200,6 +200,10 @@ const app = Vue.createApp({
       }
     },
   },
+  // TO FIX
+  deleteMessage(contactIndex, messageIndex) {
+    this.contacts[contactIndex].messages.splice(messageIndex, 1);
+  },
   computed: {
     filterContacts() {
       return this.contacts.filter((contacts) => {
